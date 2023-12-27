@@ -7,7 +7,7 @@ pipeline{
                stages {
                         stage('checkout') {
                                 steps {
-                                    git branch: 'main', url: '
+                                    git branch: 'main', url: 'https://github.com/himanaidu56/tomcat_project.git'
                                         }
                                 }
 
@@ -28,7 +28,7 @@ pipeline{
 
                        stage('deploy') {
                                 steps {
-                                    sh 'sudo cp' '/home/ubuntu/jenkins/workspace/jenkins.declarative/target/*.war
+                                    sh 'sudo cp' '/var/lib/jenkins/workspace/jenkins.declarative/target/*.war
                                     /opt/apache-tomcat-9.0.84/webapps/'
                                         }
                                 }
