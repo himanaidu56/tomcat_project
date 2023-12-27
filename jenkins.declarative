@@ -21,7 +21,7 @@ pipeline{
 
                        stage('build') {
                                 steps {
-                                    sh 'mvn install'
+                                    echo 'This is build Stage'
                                         }
                                 }
 
