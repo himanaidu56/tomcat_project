@@ -1,0 +1,38 @@
+pipeline{
+        agent {
+                label 'tomcat'
+            }
+
+
+               stages {
+                        stage('checkout') {
+                                steps {
+                                    git branch: 'main', url: '
+                                        }
+                                }
+
+
+                       stage('test') {
+                                steps {
+                                    sh 'mvn clean test'
+                                        }
+                                }
+
+
+                       stage('build') {
+                                steps {
+                                    sh 'mvn install'
+                                        }
+                                }
+
+
+                       stage('deploy') {
+                                steps {
+                                    sh 'sudo cp' '/home/ubuntu/jenkins/workspace/jenkins.declarative/target/*.war
+                                    /opt/apache-tomcat-9.0.84/webapps/'
+                                        }
+                                }
+
+
+               }
+}
