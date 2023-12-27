@@ -1,37 +1,33 @@
-pipeline{
-        agent {
-                label 'tomcat'
-            }
 
+pipeline {
+agent any
 
-               stages {
-                        stage('checkout') {
-                                steps {
-                                   git credentialsId: 'ssh', url: 'https://github.com/himanaidu56/tomcat_project.git'
-                                        }
-                                }
-
-
-                       stage('test') {
-                                steps {
-                                    sh 'mvn clean test'
-                                        }
-                                }
-
-
-                       stage('build') {
-                                steps {
-                                    echo 'This is build Stage'
-                                        }
-                                }
-
-
-                       stage('deploy') {
-                                steps {
-                                    sh 'sudo cp /home/ubuntu/jenkins/workspace/declarative/target/*.war /opt/apache-tomcat-9.0.84/webapps/'
-                                        }
-                                }
-
-
-               }
+stages {
+stage('Checkout') {
+steps {
+git branch : 'main' git credentialsId: 'ssh', url: 'https://github.com/himanaidu56/tomcat_project.git'
 }
+}
+
+stage('test') {
+steps {
+sh 'this is test stage'
+}
+
+}
+
+stage('build') {
+steps {
+echo 'This is build Stage'
+}
+}
+
+stage('Deploy') {
+steps {
+sh 'sudo cp /home/ec2-user/git/tomcat project/target/apache mavenapp-2.0.war /home/ec2-user/opt/apache tomcat-9.0.84/webapps'
+}
+}
+
+}
+
+} 
