@@ -28,7 +28,7 @@ pipeline{
 
                        stage('deploy') {
                                 steps {
-                                    sh 'sudo cp /var/lib/jenkins/workspace/declarative/target/*.war /opt/apache-tomcat-9.0.84/webapps/'
+                                    sh 'sudo cp /home/ubuntu/jenkins/workspace/declarative/target/*.war /opt/apache-tomcat-9.0.84/webapps/'
                                         }
                                 }
 
